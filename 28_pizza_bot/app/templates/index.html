@@ -1,0 +1,8 @@
+{% for pizza in pizzas %}
+  {{pizza.title}}
+  {{pizza.price}}
+  {% for choice in pizza.choices %}
+    {{ choice.title }}
+    {{ choice.price }}
+  {% endfor %}
+{% endfor %}

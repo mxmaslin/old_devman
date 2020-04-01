@@ -1,0 +1,65 @@
+.paddingmarginZero
+{
+	padding: 0;
+	margin: 0;
+}
+ 
+/* header area style */
+.headerStyle
+{  
+	background-color: #292929;
+	padding: 20px 20px 30px 20px;
+}
+ 
+/* Navigation area style */
+.navbar
+{
+	margin-bottom: 0px;
+}
+ 
+/* Cover Area style */
+.jumbotron
+{
+	background: url('../images/bg.png') no-repeat center center;
+	background-position: 0% 25%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: white;
+}
+.container .jumbotron, .container-fluid .jumbotron {
+  border-radius: 0px;
+}
+ 
+.sidebarStyle
+{
+	background-color: #A7D97E;
+	height: 400px;
+	text-align: center;
+}
+.contentAreaStyle
+{
+	background-color: #E8E8C2;
+	height: 400px;
+	text-align: center;
+}
+.footer1Style
+{
+	background-color: #7d7e7d;
+	color: #dddddd;
+	height: 150px;
+	text-align: center;
+}
+.footer2Style
+{
+	background-color: #5C5C5C;
+	color: #dddddd;
+	height: 150px;
+	text-align: center;
+}
+.footerCopyRightStyle
+{
+	background-color: #373737;
+	color: #dddddd;
+	height: 30px;
+	text-align: center;
+}

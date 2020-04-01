@@ -1,0 +1,85 @@
+<signup-page>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h2>Регистрация</h2>
+      <div class="spacer20"></div>
+      <div class="alert alert-danger" role="alert" show={errorMsg}>
+        {errorMsg}
+      </div>
+      <form onsubmit={submit}>
+        <div class="form-group">
+          <label for="phoneEmailSignup">Ваш Email</label>
+          <input id="phoneEmailSignup" name="email" class="form-control"
+                 type="email" required="required">
+        </div>
+        <div class="form-group">
+          <label for="pwdSignup">Пароль</label>
+          <div class="input-group">
+            <input id="pwdSignup" ref="password" name="password"
+                   required="required" class="form-control" type={isPwdVisible ?
+            'text' : 'password'}>
+
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default"
+                      aria-label="Показать пароль" onclick={showPassword}
+                      if={!isPwdVisible}>
+                <span class="text-muted glyphicon glyphicon-eye-open"></span>
+              </button>
+              <button type="button" class="btn btn-default"
+                      aria-label="Скрыть пароль" onclick={hidePassword}
+                      if={isPwdVisible}>
+                <span class="text-muted glyphicon glyphicon-eye-close"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+        <button class="top20 btn btn-lg btn-primary btn-block" type="submit">
+          Продолжить
+        </button>
+      </form>
+      <p class="top50">
+      <div>Уже пользовались услугами «ПомойАвто»?</div>
+      <a href="#/signin">Войти</a>
+      </p>
+    </div>
+  </div>
+  <script type="text/javascript">
+    this.errorMsg = ''
+    this.isPwdVisible = false
+
+    this.showPassword = function(event){
+      this.refs.password.focus()
+      this.isPwdVisible = true
+    }
+    this.hidePassword = function(event){
+      this.refs.password.focus()
+      this.isPwdVisible = false
+    }
+    this.submit = function(event){
+      event.preventDefault()
+
+      var riotTag = this
+      var formElement = event.target
+      fetch(window.getAPIUrl('/signup/'), {
+        method: 'POST',
+        credentials: 'include',
+        body: new FormData(formElement)
+      }).then(function(response) {
+        if (response.status==200){
+          window.go2page('/')
+        } else if (response.status==400){
+          riotTag.errorMsg = 'Упс, что-то пошло не так. Попробуйте еще раз'
+          riotTag.update()
+        } else if (response.status==500){
+          riotTag.errorMsg = 'Упс, что-то пошло не так. Ошибка на сервере'
+          riotTag.update()
+        }
+      }).catch(function(error) {
+        riotTag.errorMsg = 'Упс, что-то пошло не так'
+        console.error(error)
+        riotTag.update()
+      })
+    }
+
+  </script>
+</signup-page>

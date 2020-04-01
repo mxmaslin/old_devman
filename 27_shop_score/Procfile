@@ -1,0 +1,1 @@
+web: flask db upgrade; flask translate compile; gunicorn shop_score:app

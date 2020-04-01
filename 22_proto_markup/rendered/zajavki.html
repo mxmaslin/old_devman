@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  
+  <title>Заявки</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" content="Поиск поставщиков в Новосибирске">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+</head>
+
+<body>
+  <div class="container">
+    <header class="top">
+  <div class="row">
+  <div class="col-xs-6">Регион: <a href="#" class="top-link underline">Новосибирск и область</a>&nbsp;<a href="#"><span class="glyphicon glyphicon-triangle-bottom space-before"></span></a>
+ </div>
+ <div class="col-xs-6">
+   <span class="user-session float-right">
+    <a href="#" class="underline">Леонид Федорович</a>
+    <a href="#" class="underline">выход</a>
+   </span>
+ </div>
+</div>
+  <img src="assets/img/logo.png" alt="Логотип сайта" class="logo">
+</header>
+    <main>
+    <h1 class="center-text bids-header">Заявки</h1>
+    <header class="bids-top shadowed">
+  <div class="col-md-6">Раздел: <a href="#">Все
+    <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+  </div>
+  <div class="col-md-6 ta-region">
+    <span class="region">Регион: <a href="#">Новосибирск и область</a>&nbsp;<a href="#" class="glyphicon glyphicon-triangle-bottom"></a>
+    </span>
+  </div>
+  <hr>
+</header>
+
+  <div class="bids">
+    <div id="bids-container" data-bids="[{'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}, {'date': 'вчера, в 21:30', 'content': '60 шт. ПК от 75-15 до ПК 21-15, Криводановка, с доставкой.', 'bidder': 'Алексей', 'phone': '8-999-888-77-66', 'views': 12}]"></div>
+<script src="./assets/js/render-bids.js"></script>
+    <div id="pagination-container"></div>
+<script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script>
+<script src="assets/js/paginator.js"></script>
+  </div>
+  <script>
+    var bidsList = $('#bids-container');
+    var showMore = '<button type="button" class="btn btn-default center">Показать ещё</button>';
+    bidsList.after(showMore);
+
+  </script>
+
+</main>
+  </div>
+  <footer class="form form-margin-top">
+  <div class="container">
+  <h2 class="center-text bottom-margin">Вы поставщик?</h2>
+  <div class="row">
+    <div class="col-sm-6">
+      Для доступа к телефонам покупателей заполните форму или позвоните нам +7&nbsp;999&nbsp;888&#8209;77&#8209;66<br><br>
+      Текст с дополнительной информацией по условиям сотрудничества.<br>
+      Возможно стоит вынести его на отдельную страницу.<br>
+      Текст с дополнительной информацией по условиям сотрудничества.<br>
+      Возможно стоит вынести его на отдельную страницу.<br>
+    </div>
+    <form class="col-sm-6 container">
+      <div class="row bottom-margin">
+        <div class="col-sm-4 text-right">
+          <label for="supplier-organization">Организация</label>
+        </div>
+        <div class="col-sm-8">
+          <input id="supplier-organization" type="text" name="supplier-organization" class="width100">
+        </div>
+      </div>
+      <div class="row bottom-margin">
+        <div class="col-sm-4 text-right">
+          <label for="supplier-phone">Телефон</label>
+        </div>
+        <div class="col-sm-8">
+          <input id="supplier-phone" type="tel" name="supplier-phone" class="width100">
+        </div>
+      </div>
+      <div class="row bottom-margin">
+        <div class="col-sm-4 text-right">
+          <label for="supplier-email">Email</label>
+        </div>
+        <div class="col-sm-8">
+          <input id="supplier-email" type="email" name="supplier-email" class="width100">
+        </div>
+      </div>
+      <div class="row bottom-margin">
+        <div class="col-sm-4 text-right">
+          <label for="supplier-name">Имя</label>
+        </div>
+        <div class="col-sm-8">
+          <input id="supplier-name" type="text" name="supplier-name" class="width100">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-8">
+          <button type="submit" class="btn btn-default">Отправить информацию</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+</footer>
+
+</body>
+</html>

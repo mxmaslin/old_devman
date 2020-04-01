@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Оглавление энциклопедии Devman{% endblock %}
+
+{% block main %}
+<h1>Оглавление энциклопедии Devman</h1>
+  <ul class="list-group">
+    {% for section in context %}
+      <h2>{{ section.title }}</h2>
+        {% for file in section.files %}
+        <li class="list-group-item">
+          <a href="{{file.source|replace('.md', '.html')|e}}">{{file.title|e}}</a>
+        </li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
+{% endblock %}

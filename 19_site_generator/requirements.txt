@@ -1,0 +1,2 @@
+markdown2==2.3.7
+staticjinja==0.3.5

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name=“robots” content=“noindex,nofollow”>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Score">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Score</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <h1>Время ожидания необработанных заявок</h1>
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Заявок в обработке</strong>: {{orders.unprocessed}}</li>
+        <li class="list-group-item"><strong>Обработано сегодня</strong>: {{orders.processed_today}}</li>
+      </ul>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="table-element">Имя</th>
+              <th class="table-element">Телефон</th>
+              <th class="table-element">Статус</th>
+              <th class="table-element">Время создания</th>
+              <th class="table-element">Время подтверждения</th>
+              <th class="table-element">Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in orders.orders %}
+              <tr style="background:{{order.color}}">
+                <td class="table-element">{{order.name}}</td>
+                <td class="table-element">{{order.phone}}</td>
+                <td class="table-element">{{order.status}}</td>
+                <td class="table-element">{{order.created}}</td>
+                <td class="table-element">{{order.confirmed}}</td>
+                <td class="table-element">{{order.price}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      setTimeout(function(){
+        window.location.reload(1);
+      }, 10000);
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

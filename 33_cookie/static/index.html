@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+  <title>ПомойАвто</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+  <style type="text/css">
+    /* Space out content a bit */
+    body {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    /* Everything but the jumbotron gets side spacing for mobile first views */
+    .header,
+    .marketing,
+    .footer {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    /* Custom page header */
+    .header {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    /* Make the masthead heading the same height as the navigation */
+    .header h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 40px;
+    }
+
+    /* Custom page footer */
+    .footer {
+      padding-top: 19px;
+      color: #777;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    /* Customize container */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 730px;
+      }
+    }
+    .container-narrow > hr {
+      margin: 30px 0;
+    }
+
+    /* Main marketing message and sign up button */
+    .jumbotron {
+      text-align: center;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .jumbotron .btn {
+      padding: 14px 24px;
+      font-size: 21px;
+    }
+
+    /* Supporting marketing content */
+    .marketing {
+      margin: 40px 0;
+    }
+    .marketing p + h4 {
+      margin-top: 28px;
+    }
+
+    /* Responsive: Portrait tablets and up */
+    @media screen and (min-width: 768px) {
+      /* Remove the padding we set earlier */
+      .header,
+      .marketing,
+      .footer {
+        padding-right: 0;
+        padding-left: 0;
+      }
+      /* Space out the masthead */
+      .header {
+        margin-bottom: 30px;
+      }
+      /* Remove the bottom border on the jumbotron for visual effect */
+      .jumbotron {
+        border-bottom: 0;
+      }
+    }
+
+  </style>
+  <style type="text/css">
+    .spacer20 {
+      height: 20px;
+    }
+    .top5 {
+      margin-top: 5px;
+    }
+    .top10 {
+      margin-top: 10px;
+    }
+    .top20 {
+      margin-top: 20px;
+    }
+    .top30 {
+      margin-top: 30px;
+    }
+    .top40 {
+      margin-top: 40px;
+    }
+    .top50 {
+      margin-top: 50px;
+    }
+
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <!-- TODO вынести шапку в riot tag и добавить логику -->
+        <li role="presentation" class="active"><a href="#/">Мои автомобили</a>
+        </li>
+        <li role="presentation"><a href="#/signup">Регистрация</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">ПомойАвто</h3>
+  </div>
+
+  <div id="page-container"></div>
+
+  <footer class="footer">
+    <p>&copy; 2017 «ПомойАвто»</p>
+  </footer>
+</div>
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+
+<!-- custom riot tags -->
+<script type="riot/tag" src="/pages/signup-page.tag.html"></script>
+<script type="riot/tag" src="/pages/cars-page.tag.html"></script>
+
+<script src="/vendor/navigo.js"></script><!-- router -->
+<script src="/vendor/fetch.js"></script>
+<!-- uses isomorfic fetch for IE support -->
+
+<script type="text/javascript">
+    window.getAPIUrl = function(endpoint){
+      if (endpoint.startsWith('/'))
+        endpoint = endpoint.substring(1)
+
+      // return 'http://localhost:8080/' + endpoint // Uncomment to enable local API gateway
+      return 'http://api.33_cookie.devman.org/' + endpoint
+    }
+
+</script>
+<script
+  src="https://cdn.jsdelivr.net/npm/riot@3.6/riot+compiler.min.js"></script>
+<script>
+  function main(){
+    var mountPoint = document.getElementById('page-container')
+
+    // initialize JS router
+    var root = null
+    var useHash = true
+    var router = new Navigo(root, useHash)
+
+    window.go2page = function(url){
+      router.navigate(url);
+    }
+
+    router.on({
+      // docs live here https://github.com/krasimir/navigo
+      '/signup': function(){
+        riot.mount(mountPoint, 'signup-page', {})
+      },
+
+      '/': function(){
+        riot.mount(mountPoint, 'cars-page', {})
+      },
+    }).resolve();
+
+  }
+  main()
+
+</script>
+</body>
+</html>

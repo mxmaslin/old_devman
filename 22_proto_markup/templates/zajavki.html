@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Заявки{% endblock %}
+
+
+{% block header %}
+  {% include 'includes/_header.html' %}
+  <img src="assets/img/logo.png" alt="Логотип сайта" class="logo">
+{% endblock %}
+
+
+{% block main %}
+    <h1 class="center-text bids-header">Заявки</h1>
+    {% include 'includes/_bids-header.html' %}
+
+  <div class="bids">
+    {% include 'includes/_bids-list.html' %}
+    {% include 'includes/_paginator.html' %}
+  </div>
+  <script>
+    var bidsList = $('#bids-container');
+    var showMore = '<button type="button" class="btn btn-default center">Показать ещё</button>';
+    bidsList.after(showMore);
+
+  </script>
+
+{% endblock %}
+
+
+{% block footer %}
+  {% include 'includes/_footer.html' %}
+{% endblock %}
+
+
+
+
+
