@@ -1,4 +1,4 @@
-# Watcher of Friends Online
+# Online Friends Watcher
 
 `vk_friends_online.py` prints out user's vk friends which are online.
 

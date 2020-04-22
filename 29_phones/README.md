@@ -1,4 +1,4 @@
-# Microservice for Search Index of Phone Numbers
+# Microservice for Phone Numbers Search Index
 
 ## Script features
 

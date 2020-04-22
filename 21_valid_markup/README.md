@@ -1,4 +1,4 @@
-# Site of Real Estate Agency
+# Real Estate Agency Site
 
 Сайт агентства недвижимости. Размещён на
 [github pages](https://mxmaslin.github.io/21_valid_markup/).

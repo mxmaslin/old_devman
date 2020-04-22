@@ -1,4 +1,4 @@
-# Frontend for SPA «ПомойАвто»
+# Frontend for «ПомойАвто» SPA
 
 It is a frontend for single page application. Reach JavaScript is present.
 
