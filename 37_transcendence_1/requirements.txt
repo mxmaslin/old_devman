@@ -1,4 +1,4 @@
-Django==2.2
+Django==2.2.27
 django-configurations==2.1
 sentry-sdk==0.7.11
 django-environ==0.4.5
